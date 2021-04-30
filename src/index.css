@@ -1,37 +1,29 @@
 * {
   margin: 0;
+  padding: 0;
+
 }
 
-html {
-  height: 100%;
-  background-image: linear-gradient(to right top, #F5E9E9, #a5b1cf);
-  background-repeat: no-repeat;
-  background-size: cover;
-  user-select: none;
+
+html{
+    height: 100%;
+    background-image: linear-gradient(to right top,#F5E9E9,#a5b1cf);
+    background-repeat: no-repeat;
+    background-size: cover;
+    user-select: none;
 }
 
-body {
+#todo_list {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  flex-direction: column;
+  margin-top: 20px;
+  justify-content: space-evenly;
+  margin: 30px 400px;
 }
 
-header {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-h1 {
+h2 {
   text-align: center;
-  margin-bottom: 25px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 295px;
-  padding-left: 6px;
 }
 
 section {
@@ -47,6 +39,10 @@ section {
   box-shadow: 7px 5px 5px #032069;
 }
 
+section h3 {
+  margin-left: 16px;
+}
+
 .title {
   display: flex;
   align-items: center;
@@ -54,28 +50,15 @@ section {
   margin-top: -15px;
 }
 
-section h3 {
-  margin-left: 16px;
-}
-
-.task-complete h3 {
-  text-decoration: line-through;
-  color: gray;
-}
-
 .info {
   display: inline;
   margin-left: 30px;
   width: 300px;
 }
-
-.over-due-date {
-  color: red;
-}
-
 section button {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 14px;
   height: 14px;
   margin-left: 275px;
@@ -85,45 +68,28 @@ section button {
 }
 
 form {
-  position: fixed;
   display: flex;
   flex-direction: column;
-  top: 100px;
-  left: 150px;
+  margin-top: 20px;
+  padding: 6px;
+}
+form input, button {
+  line-height: 20px;
+  margin-bottom: 4px;
 }
 
-form input {
-  margin: 3px;
+aside {
+  border: 1px solid #333;
+  padding: 6px;
+  text-align: center;
 }
 
-.unfinishedTaskMode .task-complete {
-  display: none;
+aside .buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
 }
 
-.on {
-  border: 3px solid rgb(70, 95, 161);
-  background: rgb(153, 210, 229);
-}
-
-.form-hide-button {
-  display: none;
-}
-
-@media screen and (max-width: 1020px) {
-  form {
-    top: 385px;
-    left: 120px;
-    display: none;
-  }
-  .form-hide-button {
-    display: block;
-    position: fixed;
-    right: 13px;
-    top: 500px;
-    border-radius: 50%;
-    border: none;
-    background-color: rgba(0, 191, 255, 0.5);
-    height: 45px;
-    width: 45px;
-  }
+aside .buttons .all-task {
+  margin-right: 10px;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Form = () => {
+const NewTaskForm = () => {
     return (
         <div className="new-task-form">
             <form name="task">
@@ -13,4 +13,4 @@ const Form = () => {
     )
 }
 
-export default Form
+export default NewTaskForm
