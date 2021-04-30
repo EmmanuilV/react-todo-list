@@ -11,6 +11,8 @@ html{
     background-repeat: no-repeat;
     background-size: cover;
     user-select: none;
+    display: flex;
+    justify-content: center;
 }
 
 #todo_list {
@@ -19,7 +21,7 @@ html{
   justify-content: center;
   margin-top: 20px;
   justify-content: space-evenly;
-  margin: 30px 400px;
+  max-width: 600px;
 }
 
 h2 {
@@ -79,9 +81,8 @@ form input, button {
 }
 
 aside {
-  border: 1px solid #333;
-  padding: 6px;
   text-align: center;
+  margin-right: 50px;
 }
 
 aside .buttons {

@@ -1,22 +1,22 @@
 import React from 'react'
 
 
-export default (props) => {
+const Task = (props) => {
     const todoItem = props.todoItem
 
     return (
         <section id={todoItem.todoItemId}>
             <button >X</button>
-            <div class="title">
-                <input type="checkbox" /* {todoItem.done ? 'checked' : ''}  onclick="completeTask(event.target)"*/ />
+            <div className="title">
+                <input type="checkbox"  />
                 <h3>{todoItem.title}</h3>
             </div>
-            <div class="info">
+            <div className="info">
                 <p>{todoItem.description.lenght ? todoItem.description : ''}</p>
-                <p /* {...checkDate(dueDate, done)} */>{todoItem.dueDate}</p>
+                <p>{todoItem.dueDate}</p>
             </div>
         </section>
     )
 }
 
-// export default Main
+export default Task;
