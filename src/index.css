@@ -57,6 +57,10 @@ section {
 section h3 {
   margin-left: 16px;
 }
+.task-complete{
+  text-decoration: line-through;
+  color: gray;
+}
 
 .title {
   display: flex;
@@ -80,6 +84,10 @@ section button {
   background-color: rgba(211, 28, 28, 0.514);
   border: 1px solid black;
   border-radius: 4px;
+}
+
+.over-due-date {
+  color: red;
 }
 
 form {

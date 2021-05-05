@@ -8,7 +8,6 @@ const TodoListSidebar = ( ) => {
                 <button className="all-task on" onclick="showAllTasks(event.target)">All tasks</button>
                 <button className="unfinished-task" onclick="hideTasks(event.target)">Unfinished tasks</button>
             </div>
-            
         </aside>
     )
 }

@@ -9,7 +9,6 @@ state = {todoItemId: ++this.lastId, title: '', description: '', done: false, due
         this.props.onSubmit(this.state)        
         this.setState({todoItemId: ++this.lastId, title: '', description: '', done: false, dueDate: ''})
         console.log(this.state);
-
     }
 
     onChangeTitle = (event) => {

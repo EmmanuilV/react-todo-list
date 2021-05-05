@@ -4,8 +4,6 @@ import './App.css';
 import TodoListSidebar from './components/TodoListSidebar';
 import Tasks from './components/Tasks';
 import NewTaskForm from './components/NewTaskForm';
-// import NewTaskForm from './components/NewTaskForm';
-
 
 
 class App extends Component {
@@ -22,7 +20,7 @@ class App extends Component {
         todoItemId: 2,
         title: 'Create Item2',
         description: '',
-        done: false,
+        done: true,
         dueDate: '2021-04-30'
       },
       {
