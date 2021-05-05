@@ -3,10 +3,10 @@ import React from 'react'
 
 const Task = (props) => {
     const todoItem = props.todoItem
-
+    const deleteItem = props.deleteItem
     return (
-        <section id={todoItem.todoItemId}>
-            <button >x</button>
+        <section >
+            <button onClick={() => deleteItem(todoItem.todoItemId)}>x</button>
             <div className="title">
                 <input type="checkbox"  />
                 <h3>{todoItem.title}</h3>

@@ -4,10 +4,10 @@ import Task from './Task';
 
 const Tasks = (props) =>{
     return (
-        <div id="main">
+        <div className="main">
             <h2>Tasks</h2>
             <div className='tasks'>
-                { props.todoList.map((t, i) => <Task key={i} todoItem={t}/>) }
+                { props.todoList.map((t, i) => <Task key={i} todoItem={t} deleteItem={props.deleteItem}/>) }
             </div>
         </div>
     )

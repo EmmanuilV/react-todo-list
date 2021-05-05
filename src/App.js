@@ -9,7 +9,7 @@ import NewTaskForm from './components/NewTaskForm';
 
 
 class App extends Component {
-  state ={
+  state = {
     todoList: [
       {
         todoItemId: 1,
@@ -41,40 +41,27 @@ class App extends Component {
       }
     ]
   }
-  
- addNewTask = (task) => {
+
+  addNewTask = (task) => {
     this.setState({
-      todoList: [
-        ...this.state.todoList, 
-        {
-          ...task, 
-          todoItemId: this.getLastId(this.state.todoList)
-        }
-      ]
+      todoList: [...this.state.todoList, task]
     })
     console.log('addNewTask', this.state.todoList);
   }
-   
-  getLastId = (todoList) => {
-    let lastId;
-    for (let i = 0; i < todoList.length; i++) {
-      if (todoList.length > 0) {
-        lastId = todoList[i].todoItemId;
-        console.log("lastId: ", lastId);
-        lastId++;
 
-      }
-    }
+  removeTask = (id) => {
+    const todoItems = this.state.todoList.filter(item => item.todoItemId !== id)
+    this.setState({ todoList: todoItems })
   }
 
   render() {
     return (
-      <div id="todo_list">
+      <div className="todo_list">
         <TodoListSidebar />
-        <Tasks todoList={this.state.todoList} />
-        <NewTaskForm onSubmit={this.addNewTask}/>
+        <Tasks todoList={this.state.todoList} deleteItem={this.removeTask} />
+        <NewTaskForm onSubmit={this.addNewTask} />
       </div>
     );
   }
-} 
+}
 export default App;
