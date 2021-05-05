@@ -6,22 +6,35 @@
 
 
 html{
-    height: 100%;
+    min-height: 100%;
+    height: auto;
+
     background-image: linear-gradient(to right top,#F5E9E9,#a5b1cf);
     background-repeat: no-repeat;
     background-size: cover;
     user-select: none;
     display: flex;
+
     justify-content: center;
-}
+  }
 
 #todo_list {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   margin-top: 20px;
   justify-content: space-evenly;
-  max-width: 600px;
+  width: 600px;
+}
+
+.tasks {
+  width: 320px;
+  height: 500px;
+  overflow-y: scroll;
+  padding-right: 15px;
+  overflow-y: visible;
+  overflow-x: hidden;
 }
 
 h2 {
@@ -74,6 +87,8 @@ form {
   flex-direction: column;
   margin-top: 20px;
   padding: 6px;
+  margin-left: 195px;
+  width: 290px;
 }
 form input, button {
   line-height: 20px;

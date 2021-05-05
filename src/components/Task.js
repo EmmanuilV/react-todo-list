@@ -6,13 +6,13 @@ const Task = (props) => {
 
     return (
         <section id={todoItem.todoItemId}>
-            <button >X</button>
+            <button >x</button>
             <div className="title">
                 <input type="checkbox"  />
                 <h3>{todoItem.title}</h3>
             </div>
             <div className="info">
-                <p>{todoItem.description.lenght ? todoItem.description : ''}</p>
+                <p>{todoItem.description && (<p>{todoItem.description}</p>) }</p>
                 <p>{todoItem.dueDate}</p>
             </div>
         </section>

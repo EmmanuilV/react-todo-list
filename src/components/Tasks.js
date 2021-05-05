@@ -4,9 +4,11 @@ import Task from './Task';
 
 const Tasks = (props) =>{
     return (
-        <div id="tasks">
+        <div id="main">
             <h2>Tasks</h2>
-            { props.todoList.map((t, i) => <Task key={i} todoItem={t}/>) }
+            <div className='tasks'>
+                { props.todoList.map((t, i) => <Task key={i} todoItem={t}/>) }
+            </div>
         </div>
     )
 }
