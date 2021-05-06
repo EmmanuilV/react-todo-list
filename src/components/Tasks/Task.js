@@ -30,6 +30,15 @@ const Task = (props) => {
         }
     }
     
+    function buildDate(dueDate) {
+        console.log(dueDate)
+        if (dueDate === null || dueDate === undefined || dueDate === '') {
+            return ''
+        } else {
+            const date = dueDate.split('T')
+            return date[0]
+        }
+    }
     return (
         <section >
             <button onClick={() => deleteItem(todoItem.todoItemId)}>x</button>
@@ -38,8 +47,8 @@ const Task = (props) => {
                 <h3 {...changeTitle(todoItem.done)}>{todoItem.title}</h3>
             </div>
             <div className="info">
-                <p>{todoItem.description && (<p>{todoItem.description}</p>)}</p>
-                <p {...checkDueDate(todoItem.dueDate)}>{todoItem.dueDate}</p>
+                <p>{todoItem.description !== '' ?  todoItem.description : ''}</p>
+                <p {...checkDueDate(todoItem.dueDate)}>{buildDate(todoItem.dueDate)}</p>
             </div>
         </section>
     )

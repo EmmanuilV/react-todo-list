@@ -1,4 +1,5 @@
 import React from 'react'
+import Dashboard from './Dashboard'
 
 const TodoListSidebar = () => {
     return (
@@ -8,6 +9,7 @@ const TodoListSidebar = () => {
                 <button className="all-task on">All tasks</button>
                 <button className="unfinished-task">Unfinished tasks</button>
             </div>
+            <Dashboard />
         </aside>
     )
 }

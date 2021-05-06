@@ -2,12 +2,18 @@ import React from 'react'
 import Task from './Task';
 
 
-const Tasks = (props) =>{
+const Tasks = (props) => {
     return (
         <div className="main">
-            <h2>Tasks</h2>
+            {/* <h2>{props.selectedList.listName}</h2> */}
+            <h2>task</h2>
             <div className='tasks'>
-                { props.todoList.map((t, i) => <Task key={i} todoItem={t} deleteItem={props.deleteItem} onChange={props.onChange}/>) }
+                {props.todoList.map((t, i) => <Task
+                    key={i}
+                    todoItem={t}
+                    // deleteItem={props.deleteItem}
+                    // onChange={props.onChange}
+                />)}
             </div>
         </div>
     )

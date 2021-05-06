@@ -1,7 +1,69 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
+
+const useForm = (...fields) => (
+    {
+        reset: (value) => fields.forEach(f => f.reset(value)),
+    })
+
+function NewTaskForm(props) {
+    const title = useTextField('','title');
+    const dueDate = useTextField('','dueDate');
+    const description = useTextField('','description');
+    const form = useForm(title,dueDate,description)
+
+    const onSubmitHandler = (event) => {
+        event.preventDefault();
+        props.onSubmit(createdTask());
+        form.reset('');
+    }
+
+    function useTextField(init,name) {
+        const [value, setValue] = useState(init);
+        return {
+            value,
+            name:name,
+            onChange: (event) => setValue(event.target.value),
+            reset: (value) => setValue(value)
+        }
+    }
+
+    const createdTask = () => {
+        return { title: title.value, done: false, description: description.value, dueDate: dueDate.value };
+    }
+
+    return (
+        <form onSubmit={onSubmitHandler}>
+            <input {...title} type="text" placeholder="title" />
+            <input {...description} type="text" placeholder="Description" />
+            <input {...dueDate} type="date" />
+            <button type="submit">Add new task</button>
+        </form>
+    )
+}
+
+export default NewTaskForm
+//////////////////////////////////////////////////////////
+    // const createTask = (event) => {
+    //     const taskListEndpoint = `${Url}1/tasks/item`;
+    //     fetch(taskListEndpoint, {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(fieldAPI(fieldTitle, fieldDescription, fieldDoDate).buildObject)
+    //     })
+    //     .then(response => response.json())
+    //     .then(props.onSubmit)
+    //     .then(_ => { fieldAPI( fieldTitle, fieldDescription, fieldDoDate).cleanAll();
+    //     }); 
+    // }
+
+////////////////////////////////////////////////////////////////
+
+/* import React, { Component } from 'react'
 
 class NewTaskForm extends Component {
-lastId = 4;
+lastId = 2;
 state = {todoItemId: ++this.lastId, title: '', description: '', done: false, dueDate: ''}
     onSubmitHandler = (event) => {
         event.preventDefault();
@@ -45,3 +107,4 @@ state = {todoItemId: ++this.lastId, title: '', description: '', done: false, due
 }
 
 export default NewTaskForm
+ */

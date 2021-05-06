@@ -113,7 +113,33 @@ aside .view-buttons {
   justify-content: space-around;
   margin-top: 10px;
 }
+aside .view-buttons button{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  cursor: pointer;
+}
 
 aside .view-buttons .all-task {
   margin-right: 10px;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.dashboard button {
+  margin-top: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.dashboard button:focus {
+  outline: none;
 }
