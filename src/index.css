@@ -108,12 +108,12 @@ aside {
   margin-right: 50px;
 }
 
-aside .buttons {
+aside .view-buttons {
   display: flex;
   justify-content: space-around;
   margin-top: 10px;
 }
 
-aside .buttons .all-task {
+aside .view-buttons .all-task {
   margin-right: 10px;
 }

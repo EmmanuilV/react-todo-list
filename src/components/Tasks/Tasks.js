@@ -7,7 +7,7 @@ const Tasks = (props) =>{
         <div className="main">
             <h2>Tasks</h2>
             <div className='tasks'>
-                { props.todoList.map((t, i) => <Task key={i} todoItem={t} deleteItem={props.deleteItem}/>) }
+                { props.todoList.map((t, i) => <Task key={i} todoItem={t} deleteItem={props.deleteItem} onChange={props.onChange}/>) }
             </div>
         </div>
     )

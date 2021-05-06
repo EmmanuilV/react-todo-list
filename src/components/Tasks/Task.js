@@ -4,9 +4,14 @@ import React from 'react'
 const Task = (props) => {
     const todoItem = props.todoItem
     const deleteItem = props.deleteItem
+    const onChange = props.onChange
 
     function change() {
-        todoItem.done = !todoItem.done
+        const task = {
+            ...todoItem,
+            done: !todoItem.done
+        }
+        onChange(task)
         console.log(todoItem)
     }
 

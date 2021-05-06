@@ -24,7 +24,6 @@ state = {todoItemId: ++this.lastId, title: '', description: '', done: false, due
     }    
     onChangeDoneAndDueDate = (event) => {
         this.setState({
-            done: false,
             dueDate: event.target.value
         })
     }
