@@ -6,16 +6,14 @@ const useForm = (...fields) => (
     })
 
 function NewTaskForm(props) {
+    const tasksEndpoint = props.endpoint;
+    const todoList = props.todoList;
+    const setTodoList = props.setTodoList;
+
     const title = useTextField('','title');
     const dueDate = useTextField('','dueDate');
     const description = useTextField('','description');
-    const form = useForm(title,dueDate,description)
-
-    const onSubmitHandler = (event) => {
-        event.preventDefault();
-        props.onSubmit(createdTask());
-        form.reset('');
-    }
+    const form = useForm(title,description,dueDate)
 
     function useTextField(init,name) {
         const [value, setValue] = useState(init);
@@ -27,12 +25,26 @@ function NewTaskForm(props) {
         }
     }
 
+    const addNewTask = (event) => {
+        event.preventDefault();
+        fetch(tasksEndpoint + '/item', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(createdTask())
+        })
+          .then(response => response.json())
+          .then((createdTask) => setTodoList([...todoList, createdTask]));
+          form.reset('');
+      }
+
     const createdTask = () => {
         return { title: title.value, done: false, description: description.value, dueDate: dueDate.value };
     }
 
     return (
-        <form onSubmit={onSubmitHandler}>
+        <form onSubmit={addNewTask}>
             <input {...title} type="text" placeholder="title" />
             <input {...description} type="text" placeholder="Description" />
             <input {...dueDate} type="date" />

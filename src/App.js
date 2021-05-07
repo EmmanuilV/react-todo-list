@@ -9,23 +9,19 @@ import NewTaskForm from './components/NewTask/NewTaskForm';
 
 function App() {
   const tasksEndpoint = `${Url}1/tasks`;
-  const [todoList, setTaskLists] = useState([]);
+  const [todoList, setTodoList] = useState([]);
   useEffect(() => {
     fetch(`${tasksEndpoint}/all`)
       .then(res => res.json())
-      .then(setTaskLists);
+      .then(setTodoList);
   }, [])
 
-  const addNewTask = useEffect((task) => {
-    fetch(tasksEndpoint + '/item', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(task)
-    })
-      .then(response => response.json());
-  }, [])
+
+
+  function removeTask(id) {
+    const todoItems = todoList.filter(item => item.todoItemId !== id)
+    setTodoList(todoItems)
+  }
 
   // function removeTask(id) {
   //   const todoItems = todoList.filter(item => item.todoItemId !== id)
@@ -43,8 +39,8 @@ function App() {
   return (
     <div className="todo_list">
       <TodoListSidebar />
-      <Tasks todoList={todoList} /* selectedList={selectedList} deleteItem={removeTask} onChange={changeDoneTask} */ />
-      <NewTaskForm onSubmit={addNewTask} />
+      <Tasks todoList={todoList} /* deleteItem={removeTask} selectedList={selectedList} onChange={changeDoneTask} */ />
+      <NewTaskForm endpoint={tasksEndpoint} todoList={todoList} setTodoList={setTodoList}/>
     </div>
 
 );
